@@ -51,7 +51,6 @@ Netflix-Data-Analysis/
 └── powerbi/
     └── Netflix_Analysis_Dashboard.pbix
 
-You can also keep all files in the root folder if you prefer a simpler repository.
 
 📊 Dataset
 
@@ -59,57 +58,32 @@ The project uses the Netflix titles dataset containing 8,807 records and 12 colu
 
 Main columns:
 
-Column
+Column             Description
 
-Description
+show_id            Unique Netflix content ID
 
-show_id
+type               Movie or TV Show
 
-Unique Netflix content ID
+title              Title of the content
 
-type
+director           Director
 
-Movie or TV Show
+cast               Cast information
 
-title
+country            Country/countries associated with the content
 
-Title of the content
+date_added         Date added to Netflix
 
-director
+release_year       Original release year
 
-Director
+rating             Content rating
 
-cast
+duration           Movie duration or TV Show seasons
 
-Cast information
+listed_in          Genre/category
 
-country
+description        Content description
 
-Country/countries associated with the content
-
-date_added
-
-Date added to Netflix
-
-release_year
-
-Original release year
-
-rating
-
-Content rating
-
-duration
-
-Movie duration or TV Show seasons
-
-listed_in
-
-Genre/category
-
-description
-
-Content description
 
 🐍 Python Analysis
 
@@ -119,7 +93,7 @@ The Python files use libraries including Pandas, Matplotlib, Seaborn, MySQL Conn
 
 Python data exploration
 
-The analysis checks:
+-The analysis checks:
 
 Dataset shape
 
@@ -137,9 +111,9 @@ Genre/category distribution
 
 Sample records
 
-The netflixeda.py file also converts date_added into a datetime field and creates a year_added column. Missing values in fields such as director, cast, country, and rating are handled before further analysis.
 
-Python visualizations
+
+-Python visualizations
 
 The project creates visualizations for:
 
@@ -155,13 +129,13 @@ Ratings distribution
 
 Movie duration distribution
 
-Machine Learning
+-Machine Learning
 
 A Random Forest Classifier is included to predict the content type:
 
 Movie vs TV Show
 
-Features used include:
+-Features used include:
 
 release_year
 
@@ -173,7 +147,7 @@ listed_in
 
 duration_num
 
-The dataset is split into training and testing sets using an 80/20 split, and model performance is evaluated using:
+-The dataset is split into training and testing sets using an 80/20 split, and model performance is evaluated using:
 
 Accuracy
 
@@ -185,7 +159,7 @@ The Python source implements the Random Forest model with n_estimators=100 in th
 
 The SQL file creates the netflix_analysis database and a Netflix content table before performing business analysis.
 
-The SQL analysis covers questions such as:
+-The SQL analysis covers questions such as:
 
 Total Movies vs TV Shows
 
@@ -215,7 +189,7 @@ TV Shows with more than 5 seasons
 
 Top 5 release years with the highest content
 
-SQL concepts demonstrated
+-SQL concepts demonstrated
 
 CREATE DATABASE
 
@@ -317,7 +291,7 @@ Can content type be predicted using selected Netflix attributes?
 
 💡 Key Skills Demonstrated
 
-Data Analysis
+-Data Analysis
 
 Data cleaning
 
@@ -329,7 +303,7 @@ Exploratory Data Analysis
 
 Aggregation and trend analysis
 
-Python
+-Python
 
 Pandas
 
@@ -343,7 +317,7 @@ MySQL Connector
 
 Scikit-learn
 
-SQL
+-SQL
 
 Filtering
 
@@ -359,7 +333,7 @@ String functions
 
 Business queries
 
-Machine Learning
+-Machine Learning
 
 Label Encoding
 
@@ -373,12 +347,9 @@ Accuracy evaluation
 
 Classification report
 
-Business Intelligence
+-Business Intelligence
 
 Power BI
-
 KPI reporting
-
 Trend analysis
-
 Interactive visualizations
