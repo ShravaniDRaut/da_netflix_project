@@ -1,0 +1,165 @@
+import pandas as pd
+from sqlalchemy import create_engine
+import matplotlib.pyplot as plt
+
+# Database Connection
+engine = create_engine(
+    "mysql+pymysql://root:Aakash%401708@localhost/netflix_analysis"
+)
+print("Connection Successful")
+
+# SQL Query 
+#Most Common Ratings
+query1 = """
+SELECT rating,
+COUNT(*) AS Total_Count
+FROM netflix_titles
+GROUP BY rating
+ORDER BY Total_Count DESC;
+"""
+
+#Movies vs TV Shows
+query2 = """
+SELECT type,
+COUNT(*) AS Total_Content
+FROM netflix_titles
+GROUP BY type;
+"""
+
+# Top Countries
+query3 = """
+SELECT country,
+COUNT(*) AS Total_Content
+FROM netflix_titles
+GROUP BY country
+ORDER BY Total_Content DESC
+LIMIT 10;
+"""
+## 4.Content Released Each Year
+query4 = """
+SELECT release_year,
+COUNT(*) AS Total_Content
+FROM netflix_titles
+GROUP BY release_year
+ORDER BY release_year;
+"""
+# 5. Movies Added Each Year
+query5 = """
+SELECT year(str_to_date(date_added,'%%M %%d,%%Y')) As Year_added,
+COUNT(*) As Total_Content
+FROM netflix_titles
+group by Year_added
+ORDER by Year_added;
+"""
+
+# 6.Top 10 Directors with Most Content
+query6 = """
+SELECT  director,
+COUNT(*) AS Total_Content
+FROM netflix_titles
+WHERE director IS NOT NULL
+GROUP BY director 
+ORDER BY Total_Content DESC
+LIMIT 10;
+"""
+
+# Read SQL Query
+df1 = pd.read_sql(query1, engine)
+df2 = pd.read_sql(query2, engine)
+df3 = pd.read_sql(query3, engine)
+df4 = pd.read_sql(query4, engine)
+df5 = pd.read_sql(query5, engine)
+df6 = pd.read_sql(query6, engine)
+
+df1['Total_Count'] = pd.to_numeric(df1['Total_Count'])
+df2['Total_Content'] = pd.to_numeric(df2['Total_Content'])
+df3['Total_Content'] = pd.to_numeric(df3['Total_Content'])
+df4['Total_Content'] = pd.to_numeric(df4['Total_Content'])
+df5['Total_Content'] = pd.to_numeric(df5['Total_Content'])
+df6['Total_Content'] = pd.to_numeric(df6['Total_Content'])
+
+# Print Data
+print(df1)
+print(df2)
+print(df3)
+print(df4)
+print(df5)
+print(df6)
+
+# Visualization
+df1.plot(
+    x='rating',
+    y='Total_Count',
+    kind='bar',
+    figsize=(10,5)
+)
+plt.title("Netflix Ratings Distribution")
+plt.xlabel("Rating")
+plt.ylabel("Count")
+plt.show()
+
+df2.plot(
+    x='type',
+    y='Total_Content',
+    kind='pie',
+    figsize=(10,5)
+)
+plt.title("Netflix Content Type Distribution")
+plt.xlabel("Type")
+plt.ylabel("Count")
+plt.show()
+
+if not df3.empty:
+
+    df3.plot(
+        x='country',
+        y='Total_Content',
+        kind='bar',
+        figsize=(10,5)
+    )
+
+    plt.title("Top Countries on Netflix")
+    plt.xlabel("Country")
+    plt.ylabel("Content Count")
+
+    plt.show()
+
+else:
+    print("No data found")
+
+df4.plot(
+    x='release_year',
+    y='Total_Content',
+    kind='line',
+    figsize=(10,5)
+)
+plt.title("Content Released Each Year")
+plt.xlabel("Release Year")
+plt.ylabel("Count")
+plt.show()
+
+df5.plot(
+    x='Year_added',
+    y='Total_Content',
+    kind='line',
+    figsize=(10,5)
+)
+plt.title("Movies Added Each Year")
+plt.xlabel("Year Added")
+plt.ylabel("Count")
+plt.show()
+
+if not df6.empty:
+  
+  df6.plot(
+    x='director',
+    y='Total_Content',
+    kind='bar',
+    figsize=(10,5)
+)
+  plt.title("Top Directors on Netflix")
+  plt.xlabel("Director")
+  plt.ylabel("Content Count")
+  plt.show()
+else:
+   print("No data found")
