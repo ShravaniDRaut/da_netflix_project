@@ -11,11 +11,10 @@ from sklearn.ensemble import RandomForestClassifier
 
 conn = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="Aakash@1708",
+    user=os.getenv("MYSQL_USER"),
+    password=os.getenv("MYSQL_PASSWORD"),
     database="netflix_analysis"
 )
-
 
 cursor=conn.cursor()
 '''query="""update netflix_titles set name ="Netflix" where sr_no=2 """
