@@ -11,15 +11,25 @@ The dataset contains 8,807 Netflix titles and 12 columns.
 🛠️ Tools & Technologies
 
 Python
+
 Pandas
+
 NumPy
+
 Matplotlib
+
 Seaborn
+
 SQLAlchemy
+
 MySQL Connector
+
 Scikit-learn
+
 MySQL – Database and SQL analysis
+
 Power BI – Interactive dashboard and visualization
+
 Git & GitHub – Version control and portfolio
 
 📂 Project Structure
@@ -41,6 +51,7 @@ Netflix-Data-Analysis/
 └── powerbi/
     └── Netflix_Analysis_Dashboard.pbix
 
+You can also keep all files in the root folder if you prefer a simpler repository.
 
 📊 Dataset
 
@@ -49,30 +60,55 @@ The project uses the Netflix titles dataset containing 8,807 records and 12 colu
 Main columns:
 
 Column
+
 Description
+
 show_id
+
 Unique Netflix content ID
+
 type
+
 Movie or TV Show
+
 title
+
 Title of the content
+
 director
+
 Director
+
 cast
+
 Cast information
+
 country
+
 Country/countries associated with the content
+
 date_added
+
 Date added to Netflix
+
 release_year
+
 Original release year
+
 rating
+
 Content rating
+
 duration
+
 Movie duration or TV Show seasons
+
 listed_in
+
 Genre/category
+
 description
+
 Content description
 
 🐍 Python Analysis
@@ -86,39 +122,61 @@ Python data exploration
 The analysis checks:
 
 Dataset shape
+
 Column names
+
 Data types
+
 Descriptive statistics
+
 Missing values
+
 Duplicate records
+
 Genre/category distribution
+
 Sample records
+
+The netflixeda.py file also converts date_added into a datetime field and creates a year_added column. Missing values in fields such as director, cast, country, and rating are handled before further analysis.
 
 Python visualizations
 
 The project creates visualizations for:
 
 Movies vs TV Shows
+
 Top 10 content-producing countries
+
 Top Netflix genres
+
 Content added by year
+
 Ratings distribution
+
 Movie duration distribution
 
 Machine Learning
+
 A Random Forest Classifier is included to predict the content type:
 
 Movie vs TV Show
+
 Features used include:
+
 release_year
+
 rating
+
 country
+
 listed_in
+
 duration_num
 
 The dataset is split into training and testing sets using an 80/20 split, and model performance is evaluated using:
 
 Accuracy
+
 Classification report
 
 The Python source implements the Random Forest model with n_estimators=100 in the main model configuration.
@@ -129,36 +187,62 @@ The SQL file creates the netflix_analysis database and a Netflix content table b
 
 The SQL analysis covers questions such as:
 
-1.Total Movies vs TV Shows
-2.Top 10 countries with the most content
-3.Most common Netflix ratings
-4.Content released each year
-5.Movies/content added each year
-6.Top 10 directors with the most content
-7.Movies and TV Shows by rating
-8.Longest movie
-9.Netflix content available in India
-10.Movies released after 2020
-11.Most common genres
-12.Total content by country and type
-13.TV Shows with more than 5 seasons
-14.Top 5 release years with the highest content
+Total Movies vs TV Shows
+
+Top 10 countries with the most content
+
+Most common Netflix ratings
+
+Content released each year
+
+Movies/content added each year
+
+Top 10 directors with the most content
+
+Movies and TV Shows by rating
+
+Longest movie
+
+Netflix content available in India
+
+Movies released after 2020
+
+Most common genres
+
+Total content by country and type
+
+TV Shows with more than 5 seasons
+
+Top 5 release years with the highest content
 
 SQL concepts demonstrated
 
 CREATE DATABASE
+
 CREATE TABLE
+
 SELECT
+
 WHERE
+
 GROUP BY
+
 ORDER BY
+
 COUNT()
+
 LIMIT
+
 LIKE
+
 CASE
+
 Date functions
+
 String functions
+
 Aggregation
+
 Filtering
 
 📈 Power BI Dashboard
@@ -166,14 +250,23 @@ Filtering
 The Power BI file contains the dashboard created from the Netflix dataset.
 
 The dashboard focuses on:
+
 Overall Netflix content
+
 Movies vs TV Shows
+
 Content trends
+
 Release-year analysis
+
 Countries
+
 Ratings
+
 Genres
+
 Content added over time
+
 Key Netflix insights
 
 Interactive filters can be used to explore the dataset by dimensions such as content type, year, rating, country and genre, depending on the dashboard page.
@@ -199,55 +292,93 @@ Power BI Visualization
 Business Insights
 
 🎯 Business Questions
+
 This project answers questions such as:
 
 What is the distribution of Movies and TV Shows?
+
 Which countries have the most Netflix content?
+
 What are the most common ratings?
+
 How has Netflix content changed over the years?
+
 Which directors have the most content?
+
 What are the most common genres?
+
 How much Netflix content is associated with India?
+
 Which movies were released after 2020?
+
 Which TV Shows have more than five seasons?
+
 Can content type be predicted using selected Netflix attributes?
 
 💡 Key Skills Demonstrated
 
--Data Analysis
+Data Analysis
+
 Data cleaning
+
 Missing-value handling
+
 Duplicate detection
+
 Exploratory Data Analysis
+
 Aggregation and trend analysis
 
--Python
+Python
+
 Pandas
+
 Matplotlib
+
 Seaborn
+
 SQLAlchemy
+
 MySQL Connector
+
 Scikit-learn
 
--SQL
+SQL
+
 Filtering
+
 Aggregation
+
 Grouping
+
 Sorting
+
 Date functions
+
 String functions
+
 Business queries
 
--Machine Learning
+Machine Learning
+
 Label Encoding
+
 Train/test split
+
 Random Forest Classification
+
 Model prediction
+
 Accuracy evaluation
+
 Classification report
 
-- Business Intelligence
+Business Intelligence
+
 Power BI
+
 KPI reporting
+
 Trend analysis
+
 Interactive visualizations
